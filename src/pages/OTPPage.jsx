@@ -32,7 +32,7 @@ export default function OTPPage({ navigate }) {
     try {
       const email = localStorage.getItem("otp_email");
 
-      const res = await fetch(`${API}/auth/verify-otp`, {
+      const res = await fetch(`${API}/api/auth/verify-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
