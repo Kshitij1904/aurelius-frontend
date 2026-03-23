@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
         return;
       }
       try {
-        const url = `${API}/api/auth/me`;
+        const url = `${API}/auth/me`;
 
         const res = await fetch(url, {
           headers: {
@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     setLoading(true);
     try {
-      const loginUrl = `${API}/api/auth/login`;
+      const loginUrl = `${API}/auth/login`;
 
       const res = await fetch(loginUrl, {
         method: "POST",
@@ -72,7 +72,7 @@ export function AuthProvider({ children }) {
   const register = async (name, email, password) => {
     setLoading(true);
     try {
-      const res = await fetch(`${API}/api/auth/register`, {
+      const res = await fetch(`${API}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -90,7 +90,7 @@ export function AuthProvider({ children }) {
   const verifyOTP = async (email, otp) => {
     setLoading(true);
     try {
-      const otpUrl = `${API}/api/auth/verify-otp`;
+      const otpUrl = `${API}/auth/verify-otp`;
 
       const res = await fetch(otpUrl, {
         method: "POST",
