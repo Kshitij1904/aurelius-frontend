@@ -8,7 +8,7 @@ export default function ForgotPassword({ navigate }) {
     e.preventDefault();
     const API = import.meta.env.VITE_API_URL;
     try {
-      await fetch(`${API}/auth/forgot-password`, {
+      await fetch(`${API}/api/auth/forgot-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
