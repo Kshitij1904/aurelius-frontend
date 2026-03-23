@@ -34,7 +34,7 @@ export default function BudgetPage({ navigate, setTab }) {
   const fetchBudgets = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API}/budgets`, {
+      const res = await fetch(`${API}/api/budgets`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("aurelius_token")}`,
         },
@@ -57,7 +57,7 @@ export default function BudgetPage({ navigate, setTab }) {
     if (!category || !amount) return;
 
     try {
-      await fetch(`${API}/budgets`, {
+      await fetch(`${API}/api/budgets`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -218,7 +218,7 @@ export default function BudgetPage({ navigate, setTab }) {
                   onDragEnd={(e, info) => {
                     if (info.offset.x < -100) {
                       // swipe left = delete
-                      fetch(`${API}/budgets/${b._id}`, {
+                      fetch(`${API}/api/budgets/${b._id}`, {
                         method: "DELETE",
                         headers: {
                           Authorization: `Bearer ${localStorage.getItem("aurelius_token")}`,
