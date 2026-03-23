@@ -12,7 +12,7 @@ function useTransactions() {
     try {
       const token = localStorage.getItem("aurelius_token");
 
-      const res = await fetch(`${API}/transactions`, {
+      const res = await fetch(`${API}/api/transactions`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: token ? `Bearer ${token}` : "",
@@ -36,7 +36,7 @@ function useTransactions() {
 
   const addTransaction = async (payload) => {
     const token = localStorage.getItem("aurelius_token");
-    const res = await fetch(`${API}/transactions`, {
+    const res = await fetch(`${API}/api/transactions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function useTransactions() {
 
   const deleteTransaction = async (id) => {
     const token = localStorage.getItem("aurelius_token");
-    await fetch(`${API}/transactions/${id}`, {
+    await fetch(`${API}/api/transactions/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: token ? `Bearer ${token}` : "",

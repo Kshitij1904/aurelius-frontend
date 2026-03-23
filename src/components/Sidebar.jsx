@@ -75,7 +75,11 @@ export default function Sidebar({ active, setTab, navigate }) {
               onClick={(e) => {
                 e.stopPropagation();
                 logout();
-                if (navigate) navigate("/login");
+                if (navigate) {
+                  navigate("/login");
+                } else {
+                  window.location.href = "/login";
+                }
               }}
               className="text-white/20 hover:text-white/50 transition-colors text-xs"
               title="Sign out"

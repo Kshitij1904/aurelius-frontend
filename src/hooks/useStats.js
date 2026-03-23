@@ -11,7 +11,7 @@ function useStats() {
       try {
         const token = localStorage.getItem("aurelius_token");
 
-        const res = await fetch(`${API}/stats/summary`, {
+        const res = await fetch(`${API}/api/stats/summary`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: token ? `Bearer ${token}` : "",

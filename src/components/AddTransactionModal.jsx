@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,7 +16,7 @@ export default function AddTransactionModal({ open, onClose, onSuccess }) {
 
     try {
       const API = import.meta.env.VITE_API_URL;
-      const res = await fetch(`${API}/transactions`, {
+      const res = await fetch(`${API}/api/transactions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +46,7 @@ export default function AddTransactionModal({ open, onClose, onSuccess }) {
       }, 1200);
     } catch (err) {
       console.error("Add transaction error:", err);
-      alert(err.message);
+      toast.error(err.message);
     } finally {
       setLoading(false);
     }

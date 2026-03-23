@@ -10,7 +10,7 @@ export function useBudgets() {
     setLoading(true);
     try {
       const token = localStorage.getItem("aurelius_token");
-      const res = await fetch(`${API}/budgets`, {
+      const res = await fetch(`${API}/api/budgets`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: token ? `Bearer ${token}` : "",
@@ -27,7 +27,7 @@ export function useBudgets() {
 
   const createBudget = async (payload) => {
     const token = localStorage.getItem("aurelius_token");
-    const res = await fetch(`${API}/budgets`, {
+    const res = await fetch(`${API}/api/budgets`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export function useBudgets() {
 
   const updateBudget = async (id, payload) => {
     const token = localStorage.getItem("aurelius_token");
-    const res = await fetch(`${API}/budgets/${id}`, {
+    const res = await fetch(`${API}/api/budgets/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
