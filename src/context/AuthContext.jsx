@@ -7,7 +7,7 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem("aurelius_token") || null);
   const [loading, setLoading] = useState(true);
 
-  const API = import.meta.env.VITE_API_URL.replace(/\/$/, "");
+  const API = (import.meta.env.VITE_API_URL.replace(/\/$/, "") + "/api");
 
   useEffect(() => {
     const fetchUser = async () => {
